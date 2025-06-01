@@ -1,4 +1,4 @@
-require("abraxas.default.plugins-setup")
-require("abraxas.core.options")
-require("abraxas.core.keymaps")
-require("abraxas.core.colorscheme")
+require("edartruwu.default.plugins-setup")
+require("edartruwu.core.options")
+require("edartruwu.core.keymaps")
+require("edartruwu.core.colorscheme")
