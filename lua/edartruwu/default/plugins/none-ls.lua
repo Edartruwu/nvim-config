@@ -91,14 +91,6 @@ return {
       )
     end
 
-    -- Only add very basic diagnostics that are commonly available
-    -- Skip all the problematic linters for now
-
-    print("None-ls configured with " .. #sources .. " sources")
-    for i, source in ipairs(sources) do
-      print("  " .. i .. ". " .. (source.name or "unnamed source"))
-    end
-
     -- configure null_ls with minimal sources
     null_ls.setup({
       sources = sources,
