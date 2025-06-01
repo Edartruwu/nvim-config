@@ -12,8 +12,7 @@ return {
       end,
     },
     {
-      -- Changed to none-ls compatible bridge
-      "jay-babu/mason-null-ls.nvim", -- Updated plugin name
+      "jay-babu/mason-null-ls.nvim",
       config = function()
         local mason_none_ls_status, mason_none_ls = pcall(require, "mason-null-ls")
         if not mason_none_ls_status then
@@ -22,12 +21,16 @@ return {
 
         mason_none_ls.setup({
           ensure_installed = {
-            "prettier",
-            "stylua",
-            "eslint_d",
-            "flake8",
-            "black",
-            "phpcsfixer",
+            -- Formatters
+            "prettier", -- JS/TS/HTML/CSS/JSON formatter
+            "stylua", -- Lua formatter
+            "black", -- Python formatter
+            "phpcsfixer", -- PHP formatter
+            "gofumpt", -- Go formatter (better than gofmt)
+            "goimports", -- Go imports formatter
+            -- Linters (add these gradually after formatters work)
+            -- "eslint_d",     -- Fast ESLint
+            -- "pylint",       -- Python linter
           },
           automatic_installation = true,
         })
@@ -47,7 +50,7 @@ return {
         "tailwindcss",
         "lua_ls",
         "gopls",
-        "ts_ls", -- still required; it's reused under the hood
+        "ts_ls",
         "rust_analyzer",
         "pylsp",
         "svelte",
@@ -56,8 +59,6 @@ return {
         "dockerls",
         "clangd",
       },
-      -- Disable automatic lspconfig.setup for these servers,
-      -- so ts_ls (and others) are only configured manually in your lsconfig.lua
       automatic_installation = false,
     })
   end,
